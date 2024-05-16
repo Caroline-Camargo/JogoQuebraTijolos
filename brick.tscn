@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://8fcca8mii6sm"]
+
+[ext_resource type="Script" path="res://brick.gd" id="1_365uo"]
+[ext_resource type="Texture2D" uid="uid://54kqrv5b4xko" path="res://assets/tijolo.png" id="2_l5f01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uovse"]
+size = Vector2(99, 34)
+
+[node name="Brick" type="Area2D"]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_365uo")
+metadata/_edit_horizontal_guides_ = [0.0, -15.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(57, 29)
+shape = SubResource("RectangleShape2D_uovse")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(57, 30)
+scale = Vector2(0.164063, 0.196262)
+texture = ExtResource("2_l5f01")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
